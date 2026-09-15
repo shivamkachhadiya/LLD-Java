@@ -1,0 +1,101 @@
+import java.util.*;
+class Customer{
+    private int customerId;
+    private String name;
+    private String address;
+    Customer(int id,String n,String a){
+        this.customerId=id;
+        this.name=n;
+        this.address=a;
+    }
+
+}
+class MenuItem{
+    private int itemId;
+    private String name;
+    private double price;
+
+    MenuItem(int id,String name,double price){
+        this.itemId=id;
+        this.name=name;
+        this.price=price;
+    }
+    double getPrice(){
+        return price;
+    }
+}
+// MenuItem = restaurant ka actual food item
+// OrderItem = customer ne kitni quantity order ki
+class OrderItem{
+    private MenuItem menuItem;
+    private int quantity;
+    OrderItem(MenuItem menu,int quantity){
+        this.menuItem=menu;
+        this.quantity=quantity;
+    }
+    double getTotal(){
+        return menuItem.getPrice()*quantity;
+    }
+}
+class Restaurant{
+    private int restaurantId;
+    private String name;
+    private String address;
+    private List<MenuItem>menu;
+    Restaurant(int id,String name,String add){
+        this.restaurantId=id;
+        this.name=name;
+        this.address=add;
+        this.menu=new ArrayList<>();
+    }
+    void addMenuItem(MenuItem item){
+        menu.add(item);
+    }
+}
+
+//Order
+//Customer selected items ke saath order place karega.
+
+class Order{
+    private int orderId;
+    private Customer customer;
+    private Restaurant restaurant;
+    private List<OrderItem>items;
+    Order(int orderId,Customer customer,Restaurant restaurant){
+        this.orderId=orderId;
+        this.customer=customer;
+        this.restaurant=restaurant;
+        this.items=new ArrayList<>();
+    }
+    void addItems(MenuItem item,int quantity){
+        items.add(new OrderItem(item,quantity));
+    }
+    double getTotalAmount(){
+        double total=0;
+        for(OrderItem item:items){
+            total+=item.getTotal();
+        }
+        return total;
+    }
+}
+
+
+public class Food {
+    public static void main(String[] args) {
+        Customer c1=new Customer(1,"shivam","vellore");
+        Restaurant r1=new Restaurant(101,"Food Hub","Katpadi");
+        MenuItem idli =new MenuItem(1, "Idli", 50);
+        MenuItem dosa = new MenuItem(2, "Dosa", 80);
+        MenuItem vada =new MenuItem(3, "Medu Vada", 60);
+        r1.addMenuItem(idli);
+        r1.addMenuItem(dosa);
+        r1.addMenuItem(vada);
+
+        Order order=new Order(1001,c1,r1);
+        order.addItems(dosa,2);
+        order.addItems(idli,1);
+
+        System.out.println("Total order is ->"+order.getTotalAmount());
+
+    }
+}
