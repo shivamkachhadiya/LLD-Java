@@ -1,4 +1,7 @@
-package Book_My_Show;
+package Book_My_Show.Controllers;
+
+import Book_My_Show.Models.City;
+import Book_My_Show.Models.Movie;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,7 +28,7 @@ public class MovieController {
         return cityVsMovies.get(city);
     }
 
-    Movie getMovieByName(String movieName){
+    public Movie getMovieByName(String movieName){
         for(Movie m:allMovies){
             if(m.getMovieName()==movieName){
                 return m;

@@ -1,5 +1,9 @@
 package Book_My_Show;
 
+import Book_My_Show.Controllers.MovieController;
+import Book_My_Show.Controllers.TheatreController;
+import Book_My_Show.Models.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;

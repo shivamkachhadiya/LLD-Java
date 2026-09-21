@@ -1,4 +1,4 @@
-package Book_My_Show;
+package Book_My_Show.Payments;
 
 import java.util.UUID;
 

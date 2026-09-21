@@ -1,4 +1,4 @@
-package Book_My_Show;
+package Book_My_Show.Models;
 
 import java.util.ArrayList;
 import java.util.List;

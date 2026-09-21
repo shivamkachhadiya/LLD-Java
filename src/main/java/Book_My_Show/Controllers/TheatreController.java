@@ -1,4 +1,9 @@
-package Book_My_Show;
+package Book_My_Show.Controllers;
+
+import Book_My_Show.Models.City;
+import Book_My_Show.Models.Movie;
+import Book_My_Show.Models.Show;
+import Book_My_Show.Models.Theatre;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -9,12 +14,12 @@ public class TheatreController {
     Map<City, List<Theatre>> cityVsTheatre;
     List<Theatre> allTheatres;
 
-    TheatreController() {
+    public TheatreController() {
         cityVsTheatre = new HashMap<>();
         allTheatres = new ArrayList<>();
     }
 
-    void addTheatres(Theatre theatre, City city) {
+    public void addTheatres(Theatre theatre, City city) {
         allTheatres.add(theatre);
         List<Theatre> theatres = cityVsTheatre.getOrDefault(city, new ArrayList<>());
 
